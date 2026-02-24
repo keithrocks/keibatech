@@ -21,37 +21,35 @@
     body { background: var(--bg-light); color: var(--text-light); transition: 0.3s ease; line-height: 1.6; }
     body.dark { background: var(--bg-dark); color: var(--text-dark); }
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.92);
-      border-bottom: 1px solid #ececec;
-      backdrop-filter: blur(10px);
-    }
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid #ececec;
+  backdrop-filter: blur(10px);
+}
 
-    body.dark header {
-      background: rgba(15, 15, 15, 0.92);
-      border-bottom-color: #252525;
-    }
-
-    nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
+body.dark header {
+  background: rgba(15, 15, 15, 0.92);
+  border-bottom-color: #252525;
+}
+   nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+ nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
 
     nav a {
       text-decoration: none;
@@ -59,40 +57,41 @@
       font-weight: 500;
     }
 
-    .toggle {
-      cursor: pointer;
-      border: 1px solid #ccc;
-      border-radius: 999px;
-      background: transparent;
-      color: inherit;
-      padding: 0.4rem 0.85rem;
-    }
-
+.toggle {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.8rem;
+}
     section {
       max-width: 1200px;
       margin: auto;
       padding: 5.5rem 1rem;
     }
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 1.2rem;
-      padding-top: 7rem;
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+  padding-top: 7rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
     }
     h1 { font-size: clamp(2.3rem, 5vw, 3.5rem); line-height: 1.2; }
     h2 { font-size: clamp(1.7rem, 3.2vw, 2.2rem); margin-bottom: 0.85rem; }
     p { max-width: 860px; }
 
-    .section-intro { color: var(--muted-light); margin-bottom: 1rem; }
-    body.dark .section-intro, body.dark .meta { color: var(--muted-dark); }
 
-    .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; text-decoration: none; color: inherit; border: 1px solid var(--accent);
-      padding: 0.75rem 1.2rem; border-radius: 7px; font-weight: 600; transition: 0.25s ease;
     }
     .btn.primary { background: var(--accent); color: #fff; }
     .btn:hover { background: var(--accent); color: #fff; }
@@ -112,150 +111,24 @@
       align-items: start;
     }
 
-    form { display: grid; gap: 0.8rem; }
-    label { display: block; font-weight: 600; font-size: 0.92rem; margin-bottom: 0.35rem; }
-    input, textarea { width: 100%; border: 1px solid #ccc; border-radius: 6px; padding: 0.75rem; }
-    textarea { min-height: 130px; resize: vertical; }
-    body.dark input, body.dark textarea { background: #141414; color: #f5f5f5; border-color: #333; }
 
-    footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid #ececec; font-size: 0.86rem; }
-    body.dark footer { border-top-color: #252525; }
 
     @media (max-width: 860px) {
       nav { flex-direction: column; }
     }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 7rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <strong>Keiba Tech</strong>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">What We Do</a></li>
-        <li><a href="#audience">Who We Serve</a></li>
-        <li><a href="#why">Why Keiba Tech</a></li>
-        <li><a href="#contact">Let's Work</a></li>
-      </ul>
-      <button type="button" class="toggle" onclick="toggleMode()">Light / Dark</button>
-    </nav>
-  </header>
 
-  <section id="home" class="hero">
-    <h1>Work Faster, Smarter, and More Securely with Keiba Tech</h1>
-    <p>Keiba Tech IT Consultancy delivers corporate IT training, system development, and digital solutions designed to help organizations work faster, smarter, and more securely.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn primary">Book a Consultation</a>
-      <a href="#contact" class="btn">Request a Proposal</a>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>About Keiba Tech IT Consultancy</h2>
-    <p>We partner with businesses, schools, and government offices to modernize workflows, strengthen cybersecurity practices, and build reliable systems that support long-term growth.</p>
-    <p>We focus on practical, real-world results—training that improves productivity immediately, and solutions that streamline operations without unnecessary complexity.</p>
-  </section>
-
-  <section id="services">
-    <h2>What We Do</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>IT Consultancy &amp; Advisory</h3>
-        <p>We assess your current setup and recommend the right technology direction—covering infrastructure, process improvement, security, and digital transformation planning.</p>
-      </article>
-      <article class="card">
-        <h3>Corporate IT Training &amp; Upskilling</h3>
-        <ul class="bullet-list">
-          <li>Microsoft Excel &amp; Google Sheets (Productivity, Reporting, Analytics)</li>
-          <li>Workplace digital tools and automation basics</li>
-          <li>Cybersecurity awareness and safe use of digital platforms</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>System &amp; Application Development</h3>
-        <ul class="bullet-list">
-          <li>Web-based systems and dashboards</li>
-          <li>Database-driven tools and automation</li>
-          <li>Internal portals, forms, and reporting systems</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>Technical Support &amp; Digital Solutions</h3>
-        <ul class="bullet-list">
-          <li>Setup, optimization, troubleshooting</li>
-          <li>Collaboration tools and workflow improvements</li>
-          <li>Maintenance guidance and best-practice implementation</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>Seminars &amp; Workshops</h3>
-        <ul class="bullet-list">
-          <li>Cybersecurity and data protection</li>
-          <li>Digital productivity</li>
-          <li>Emerging tech and AI tools for work efficiency</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section id="audience">
-    <h2>Who We Serve</h2>
-    <div class="grid">
-      <article class="card"><p>Businesses and startups</p></article>
-      <article class="card"><p>Schools, colleges, and training centers</p></article>
-      <article class="card"><p>Government offices and institutions</p></article>
-    </div>
-  </section>
-
-  <section id="why">
-    <h2>Why Keiba Tech</h2>
-    <div class="grid">
-      <article class="card"><p>Practical and business-ready solutions</p></article>
-      <article class="card"><p>Training focused on measurable output</p></article>
-      <article class="card"><p>Custom systems built around your workflow</p></article>
-      <article class="card"><p>Productivity + security approach</p></article>
-      <article class="card"><p>Reliable, professional delivery</p></article>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Let's Work</h2>
-    <p class="section-intro">Need training, a system, or an IT upgrade plan? Keiba Tech is ready to help you build a smarter and more secure workflow.</p>
-    <div class="contact-wrap">
-      <div>
-        <p><strong>Email:</strong> hello@keibatech.com</p>
-        <p><strong>Phone/WhatsApp:</strong> +255 700 000 000</p>
-        <p class="section-intro">Book a consultation or request a proposal.</p>
-      </div>
-      <form action="#" method="post">
-        <div>
-          <label for="name">Full Name</label>
-          <input id="name" name="name" type="text" required />
-        </div>
-        <div>
-          <label for="email">Work Email</label>
-          <input id="email" name="email" type="email" required />
-        </div>
-        <div>
-          <label for="organization">Organization</label>
-          <input id="organization" name="organization" type="text" />
-        </div>
-        <div>
-          <label for="message">Project Brief</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <button type="submit" class="btn primary">Submit Inquiry</button>
-      </form>
-    </div>
-  </section>
-
-  <footer>© 2026 Keiba Tech IT Consultancy. All rights reserved.</footer>
-
-  <script>
-    function toggleMode() {
-      document.body.classList.toggle('dark');
-    }
-  </script>
 </body>
 </html>
