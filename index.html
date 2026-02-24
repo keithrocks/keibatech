@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Keiba Tech IT Consultancy</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
   <style>
     :root {
       --bg-light: #ffffff;
@@ -15,258 +13,63 @@
       --text-dark: #f5f5f5;
       --accent: #000000;
       --muted-light: #666;
-      --muted-dark: #bdbdbd;
+      --muted-dark: #bbb;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    body {
-      background: var(--bg-light);
-      color: var(--text-light);
-      transition: 0.3s ease;
-      line-height: 1.6;
-    }
-
-    body.dark {
-      background: var(--bg-dark);
-      color: var(--text-dark);
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg-light); color: var(--text-light); transition: 0.3s ease; line-height: 1.6; }
+    body.dark { background: var(--bg-dark); color: var(--text-dark); }
 
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #ececec;
-      z-index: 1000;
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(255,255,255,0.92); border-bottom: 1px solid #ececec; backdrop-filter: blur(10px);
     }
+    body.dark header { background: rgba(15,15,15,0.92); border-bottom-color: #252525; }
 
-    body.dark header {
-      background: rgba(15, 15, 15, 0.92);
-      border-bottom: 1px solid #242424;
-    }
+    nav { max-width: 1200px; margin: auto; padding: 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    nav ul { list-style: none; display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    nav a { text-decoration: none; color: inherit; font-weight: 500; }
 
-    nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
+    .toggle { cursor: pointer; border: 1px solid #ccc; border-radius: 999px; background: transparent; color: inherit; padding: 0.4rem 0.85rem; }
+    section { max-width: 1200px; margin: auto; padding: 5.5rem 1rem; }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem; padding-top: 7rem; }
+    h1 { font-size: clamp(2.3rem, 5vw, 3.5rem); line-height: 1.2; }
+    h2 { font-size: clamp(1.7rem, 3.2vw, 2.2rem); margin-bottom: 0.85rem; }
+    p { max-width: 860px; }
 
-    nav a {
-      text-decoration: none;
-      color: inherit;
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
+    .section-intro { color: var(--muted-light); margin-bottom: 1rem; }
+    body.dark .section-intro, body.dark .meta { color: var(--muted-dark); }
 
-    .toggle {
-      cursor: pointer;
-      border: 1px solid #cfcfcf;
-      border-radius: 999px;
-      background: transparent;
-      color: inherit;
-      padding: 0.45rem 0.9rem;
-      font-size: 0.8rem;
-    }
-
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 5.5rem 1rem;
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 1.3rem;
-      padding-top: 7rem;
-    }
-
-    h1 {
-      font-size: clamp(2.3rem, 5vw, 3.6rem);
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-size: clamp(1.7rem, 3.2vw, 2.2rem);
-      margin-bottom: 0.9rem;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.6rem;
-    }
-
-    p {
-      max-width: 850px;
-    }
-
-    .section-intro {
-      color: var(--muted-light);
-      margin-bottom: 1.2rem;
-    }
-
-    body.dark .section-intro,
-    body.dark .meta {
-      color: var(--muted-dark);
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-      margin-top: 0.2rem;
-    }
-
+    .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
     .btn {
-      display: inline-block;
-      text-decoration: none;
-      border: 1px solid var(--accent);
-      border-radius: 7px;
-      padding: 0.8rem 1.3rem;
-      font-weight: 600;
-      transition: 0.25s ease;
-      color: inherit;
-      background: transparent;
+      display: inline-block; text-decoration: none; color: inherit; border: 1px solid var(--accent);
+      padding: 0.75rem 1.2rem; border-radius: 7px; font-weight: 600; transition: 0.25s ease;
     }
+    .btn.primary { background: var(--accent); color: #fff; }
+    .btn:hover { background: var(--accent); color: #fff; }
+    body.dark .btn { border-color: #fff; }
+    body.dark .btn.primary, body.dark .btn:hover { background: #fff; color: #000; }
 
-    .btn.primary {
-      background: var(--accent);
-      color: #fff;
-    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; }
+    .card { border: 1px solid #e7e7e7; border-radius: 8px; padding: 1.2rem; background: rgba(255,255,255,0.65); }
+    body.dark .card { border-color: #2a2a2a; background: rgba(0,0,0,0.2); }
 
-    .btn:hover {
-      background: var(--accent);
-      color: #fff;
-    }
+    .card h3 { margin-bottom: 0.6rem; font-size: 1.1rem; }
+    .bullet-list { padding-left: 1.1rem; display: grid; gap: 0.4rem; }
+    .contact-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
 
-    .btn.primary:hover {
-      opacity: 0.92;
-    }
+    form { display: grid; gap: 0.8rem; }
+    label { display: block; font-weight: 600; font-size: 0.92rem; margin-bottom: 0.35rem; }
+    input, textarea { width: 100%; border: 1px solid #ccc; border-radius: 6px; padding: 0.75rem; }
+    textarea { min-height: 130px; resize: vertical; }
+    body.dark input, body.dark textarea { background: #141414; color: #f5f5f5; border-color: #333; }
 
-    body.dark .btn {
-      border-color: #fff;
-    }
+    footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid #ececec; font-size: 0.86rem; }
+    body.dark footer { border-top-color: #252525; }
 
-    body.dark .btn.primary,
-    body.dark .btn:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.2rem;
-    }
-
-    .card {
-      border: 1px solid #e7e7e7;
-      border-radius: 9px;
-      padding: 1.2rem;
-      background: rgba(255, 255, 255, 0.65);
-    }
-
-    body.dark .card {
-      border-color: #272727;
-      background: rgba(0, 0, 0, 0.22);
-    }
-
-    .bullet-list {
-      display: grid;
-      gap: 0.5rem;
-      margin-top: 0.6rem;
-      padding-left: 1.1rem;
-    }
-
-    .bullet-list li {
-      margin-left: 0.4rem;
-    }
-
-    .meta {
-      color: var(--muted-light);
-      font-size: 0.95rem;
-      margin-top: 0.4rem;
-    }
-
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 1.8rem;
-      align-items: start;
-    }
-
-    form {
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    label {
-      display: block;
-      font-size: 0.92rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      border: 1px solid #cccccc;
-      border-radius: 6px;
-      padding: 0.75rem;
-      font-size: 0.95rem;
-      color: #000;
-      background: #fff;
-    }
-
-    body.dark input,
-    body.dark textarea {
-      color: #f5f5f5;
-      background: #151515;
-      border-color: #333;
-    }
-
-    textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      border-top: 1px solid #ececec;
-      font-size: 0.86rem;
-    }
-
-    body.dark footer {
-      border-top-color: #242424;
-    }
-
-    @media (max-width: 860px) {
-      nav {
-        flex-direction: column;
-      }
-    }
+    @media (max-width: 860px) { nav { flex-direction: column; } }
   </style>
 </head>
 <body>
@@ -278,7 +81,8 @@
         <li><a href="#about">About</a></li>
         <li><a href="#services">What We Do</a></li>
         <li><a href="#audience">Who We Serve</a></li>
-        <li><a href="#contact">Let&apos;s Work</a></li>
+        <li><a href="#why">Why Keiba Tech</a></li>
+        <li><a href="#contact">Let's Work</a></li>
       </ul>
       <button type="button" class="toggle" onclick="toggleMode()">Light / Dark</button>
     </nav>
@@ -286,9 +90,7 @@
 
   <section id="home" class="hero">
     <h1>Work Faster, Smarter, and More Securely with Keiba Tech</h1>
-    <p>
-      Keiba Tech IT Consultancy delivers corporate IT training, system development, and digital solutions designed to help organizations improve productivity, modernize workflows, and strengthen cybersecurity practices.
-    </p>
+    <p>Keiba Tech IT Consultancy delivers corporate IT training, system development, and digital solutions designed to help organizations work faster, smarter, and more securely.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn primary">Book a Consultation</a>
       <a href="#contact" class="btn">Request a Proposal</a>
@@ -297,23 +99,21 @@
 
   <section id="about">
     <h2>About Keiba Tech IT Consultancy</h2>
-    <p>
-      We partner with businesses, schools, and government offices to build reliable systems that support long-term growth. Our approach is practical and results-driven: training that improves work output immediately, and solutions that streamline operations without unnecessary complexity.
-    </p>
+    <p>We partner with businesses, schools, and government offices to modernize workflows, strengthen cybersecurity practices, and build reliable systems that support long-term growth.</p>
+    <p>We focus on practical, real-world results—training that improves productivity immediately, and solutions that streamline operations without unnecessary complexity.</p>
   </section>
 
   <section id="services">
     <h2>What We Do</h2>
-    <p class="section-intro">Practical services tailored to real operational needs.</p>
     <div class="grid">
       <article class="card">
         <h3>IT Consultancy &amp; Advisory</h3>
-        <p>We assess your current setup and recommend the right technology direction across infrastructure, process improvement, security, and digital transformation planning.</p>
+        <p>We assess your current setup and recommend the right technology direction—covering infrastructure, process improvement, security, and digital transformation planning.</p>
       </article>
       <article class="card">
         <h3>Corporate IT Training &amp; Upskilling</h3>
         <ul class="bullet-list">
-          <li>Microsoft Excel &amp; Google Sheets (productivity, reporting, analytics)</li>
+          <li>Microsoft Excel &amp; Google Sheets (Productivity, Reporting, Analytics)</li>
           <li>Workplace digital tools and automation basics</li>
           <li>Cybersecurity awareness and safe use of digital platforms</li>
         </ul>
@@ -329,7 +129,7 @@
       <article class="card">
         <h3>Technical Support &amp; Digital Solutions</h3>
         <ul class="bullet-list">
-          <li>Setup, optimization, and troubleshooting</li>
+          <li>Setup, optimization, troubleshooting</li>
           <li>Collaboration tools and workflow improvements</li>
           <li>Maintenance guidance and best-practice implementation</li>
         </ul>
@@ -354,7 +154,7 @@
     </div>
   </section>
 
-  <section id="why-us">
+  <section id="why">
     <h2>Why Keiba Tech</h2>
     <div class="grid">
       <article class="card"><p>Practical and business-ready solutions</p></article>
@@ -366,35 +166,30 @@
   </section>
 
   <section id="contact">
-    <h2>Let&apos;s Work</h2>
+    <h2>Let's Work</h2>
     <p class="section-intro">Need training, a system, or an IT upgrade plan? Keiba Tech is ready to help you build a smarter and more secure workflow.</p>
     <div class="contact-wrap">
       <div>
         <p><strong>Email:</strong> hello@keibatech.com</p>
         <p><strong>Phone/WhatsApp:</strong> +255 700 000 000</p>
-        <p class="meta">Book a consultation or request a proposal.</p>
-        <div class="hero-actions">
-          <a href="mailto:hello@keibatech.com" class="btn">Email Keiba Tech</a>
-          <a href="#" class="btn primary">Request Proposal</a>
-        </div>
+        <p class="section-intro">Book a consultation or request a proposal.</p>
       </div>
-
       <form action="#" method="post">
         <div>
           <label for="name">Full Name</label>
-          <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+          <input id="name" name="name" type="text" required />
         </div>
         <div>
           <label for="email">Work Email</label>
-          <input id="email" name="email" type="email" placeholder="you@company.com" required />
+          <input id="email" name="email" type="email" required />
         </div>
         <div>
           <label for="organization">Organization</label>
-          <input id="organization" name="organization" type="text" placeholder="Your organization" />
+          <input id="organization" name="organization" type="text" />
         </div>
         <div>
-          <label for="message">What do you need help with?</label>
-          <textarea id="message" name="message" placeholder="Tell us about your training, system, or IT upgrade need..." required></textarea>
+          <label for="message">Project Brief</label>
+          <textarea id="message" name="message" required></textarea>
         </div>
         <button type="submit" class="btn primary">Submit Inquiry</button>
       </form>
